@@ -1,3 +1,5 @@
+package GeradorCpf;
+
 import javax.swing.*;
 
 public class TesteCPF {
@@ -14,10 +16,6 @@ public class TesteCPF {
         validarRepeticao(cpf);
         StringInt(cpf);
         cpfValido(cpf);
-
-
-
-
     }
 
     //metodos
@@ -34,9 +32,7 @@ public class TesteCPF {
         } else {
             System.out.println(false + " O numero de documento recebido é inválido. Esperava-se um CPF ou CNPJ e foi recebido o documento " + cpfCnpj + " que contém " + cpfCnpj.length() + " caracteres");
         }
-
     }
-
 
     //2 - verificar se veio pontuação/formatação do CPF
     public static void validarSeCpfPossuiPontuacao(String cpf) {
@@ -49,13 +45,13 @@ public class TesteCPF {
 
 
     }
+
     // charAT na posição tal, se essa é igual a um . ou um '
-    public static void validarSePossuiPontuação3(String cpf){
+    public static void validarSePossuiPontuação3(String cpf) {
         if ("".charAt(3) >= '.')
             if ("".charAt(11) <= '-') {
-                ;
             }
-           System.out.println(cpf);
+        System.out.println(cpf);
         validarSePossuiPontuação3(cpf);
     }
 
@@ -77,22 +73,20 @@ public class TesteCPF {
         System.out.println(cpf);
     }
 
-
-//5 - Verificar se tem o número 9
+    //5 - Verificar se tem o número 9
 
     public static void verificarSeTemNumero9(String cpf) {
         String verificarNumero = cpf;
-        if(verificarNumero.contains("9")){
-            System.out.println(true + "1 Contém nove");}
-        else{
-            System.out.println(false + "2 Não contém nove");}
+        if (verificarNumero.contains("9")) {
+            System.out.println(true + "1 Contém nove");
+        } else {
+            System.out.println(false + "2 Não contém nove");
+        }
 
 
     }
 
-
-
-//6 - verificar se tem algum numero que aparece mais de uma vez, se tiver guardar em uma variavel
+    //6 - verificar se tem algum numero que aparece mais de uma vez, se tiver guardar em uma variavel
     public static void validarRepeticao(String cpf) {
         cpf = cpf.replace(".", "");
         cpf = cpf.replace("-", "");
@@ -121,10 +115,8 @@ public class TesteCPF {
         }
     }
 
-
-
-//7 - converta a string para um campo tipo int 🙂
-    public static void  StringInt(String cpf){
+    //7 - converta a string para um campo tipo int 🙂
+    public static void StringInt(String cpf) {
         cpf = cpf.replace(".", "");
         cpf = cpf.replace("-", "");
         double convercao = Double.parseDouble(cpf);
@@ -132,20 +124,28 @@ public class TesteCPF {
 
     }
 
-
-//8 - Verificar se é um CPF válido (desafio)
-    public static void cpfValido (String cpf){
+    //8 - Verificar se é um CPF válido (desafio)
+    public static void cpfValido(String cpf) {
         String S1, S2, S3, S4, S5, S6, S7, S8, S9, confere = "";
         int N1, N2, N3, N4, N5, N6, N7, N8, N9, verificador1, verificador2;
-        S1 = cpf.substring(0,1) ; N1 = Integer.parseInt(S1);
-        S2 = cpf.substring(1,2) ; N2 = Integer.parseInt(S2);
-        S3 = cpf.substring(2,3) ; N3 = Integer.parseInt(S3);
-        S4 = cpf.substring(4,5) ; N4 = Integer.parseInt(S4);
-        S5 = cpf.substring(5,6) ; N5 = Integer.parseInt(S5);
-        S6 = cpf.substring(6,7) ; N6 = Integer.parseInt(S6);
-        S7 = cpf.substring(8,9) ; N7 = Integer.parseInt(S7);
-        S8 = cpf.substring(9,10) ; N8 = Integer.parseInt(S8);
-        S9 = cpf.substring(10,11) ; N9 = Integer.parseInt(S9);
+        S1 = cpf.substring(0, 1);
+        N1 = Integer.parseInt(S1);
+        S2 = cpf.substring(1, 2);
+        N2 = Integer.parseInt(S2);
+        S3 = cpf.substring(2, 3);
+        N3 = Integer.parseInt(S3);
+        S4 = cpf.substring(4, 5);
+        N4 = Integer.parseInt(S4);
+        S5 = cpf.substring(5, 6);
+        N5 = Integer.parseInt(S5);
+        S6 = cpf.substring(6, 7);
+        N6 = Integer.parseInt(S6);
+        S7 = cpf.substring(8, 9);
+        N7 = Integer.parseInt(S7);
+        S8 = cpf.substring(9, 10);
+        N8 = Integer.parseInt(S8);
+        S9 = cpf.substring(10, 11);
+        N9 = Integer.parseInt(S9);
         verificador1 = (N1 * 10 + N2 * 9 + N3 * 8 + N4 * 7 + N5 * 6 + N6 * 5 + N7 * 4 + N8 * 3 + N9 * 2);
         if ((verificador1 % 11) < 2)
             verificador1 = 0;
@@ -165,9 +165,7 @@ public class TesteCPF {
         else
             JOptionPane.showMessageDialog(null, "CPF INCORRETO CPF =" + cpf + "Confere" + confere);
     }
-
-
-    }
+}
 
 
 
